@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Container wrapper -->
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand me-2" href="https://mdbgo.com/">
+        <img
+          src="https://mdbcdn.b-cdn.net/img/logo/mdb-transaprent-noshadows.webp"
+          height="16"
+          alt="MDB Logo"
+          loading="lazy"
+          style="margin-top: -1px;"
+        />
+      </a>
+  
+      <!-- Toggle button -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-mdb-toggle="collapse"
+        data-mdb-target="#navbarButtonsExample"
+        aria-controls="navbarButtonsExample"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+  
+      <!-- Collapsible wrapper -->
+      <div class="collapse navbar-collapse" id="navbarButtonsExample">
+        <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="navbar-brand" href="#">Medcare</a>
+          </li>
+        </ul>
+        <!-- Left links -->
+  
+        <div class="d-flex align-items-center">
+            
+          <button type="button" class="btn btn-link px-3 me-2">
+            <a style="text-decoration: none;" href="/login">Login</a>
+          </button>
+          <button type="button" class="btn btn-dark me-3">
+            <a style="text-decoration: none;" href="/singin">Sign up for free</a>
+          </button>
+         
+        </div>
+      </div>
+      <!-- Collapsible wrapper -->
+    </div>
+    <!-- Container wrapper -->
+  </nav>
+  <!-- Navbar -->
+<div class="stater">
+<h2>Welcome <%=name%></h2>
+<h4>Set appointment</h4>
+</div>
+<form class="row g-3" action="/appointment" method="post">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Name</label>
+        <input type="name" name="name" value="<%=name%>" class="form-control" id="inputEmail4" placeholder="<%=name%>">
+      </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input type="email" name="email" class="form-control" id="inputEmail4">
+    </div>
+
+    </div>
+    <div class="col-md-6">
+      <label for="inputCity" class="form-label">Disease</label>
+      <input type="text" name="disease" class="form-control" id="inputCity">
+    </div>
+    <div class="col-md-6">
+        <label for="inputCity" class="form-label">age</label>
+        <input type="number" name="age" class="form-control" id="inputCity">
+      </div>
+    <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="exampleRadios1" value="Male" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          Male
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="gender" id="exampleRadios2" value="Female">
+        <label class="form-check-label" for="exampleRadios2">
+          Female
+        </label>
+      </div>
+
+      </div>
+  
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Set appointment</button>
+    </div>
+    
+  </form>
+  <h1>Replies</h1>
+  <%for(var i=0;i<replies.length;i++){%>
+    <%if(replies[i].name==name){%>
+      <p>patient: <%=replies[i].name%></p>
+
+      <p> appointment date:<%=replies[i].relplies%></p>
+      <hr>
+    <%}%>
+  <%}%>
